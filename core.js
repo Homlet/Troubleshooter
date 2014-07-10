@@ -65,7 +65,7 @@ $(window).load(function() {
         
         // Scroll to the section.
         var window_width = $(window).width();
-        $("html").animate({
+        $("html, body").animate({
                 scrollLeft: index * window_width
             },
             400
