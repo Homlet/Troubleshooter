@@ -9,6 +9,18 @@ function place_sections() {
 	});
 }
 
+/*function list_suggestions() {
+	// Populate object of suggestion types.
+	var suggestions = {};
+	$("a[data-fault]").each(function() {
+		var fault = $(this).attr("data-fault");
+		if (!suggestions.hasOwnProperty(fault)) {
+			suggestions[fault] = 0;
+		}
+	});
+	console.log(suggestions);
+}*/
+
 $(window).load(function() {
 	window.location.hash = "#home";
 	
@@ -20,22 +32,32 @@ $(window).load(function() {
 	
 	// Breadcrumb trail allows us to trace our steps back.
 	var route = Array();
-	route.push(0);
+	route.push([0, ""]);
 	
 	$(".section a").click(function(event) {
+		// Prevent the browser from following the link.
 		event.preventDefault();
 		
+		// Get the index of the section.
 		var section = $(this).attr("href").replace("#", "");
 		var index = sections.indexOf(section);
+		
+		// If the section was "back", get the previous section.
 		if (index === -1) {
 			if (route.length > 1) { route.pop() };
 			index = route[route.length-1];
 		} else {
-			route.push(index)
+			var fault = "";
+			if ($(this).is("[data-fault]")) {
+				fault = $(this).attr("data-fault");
+			}
+			route.push([index, fault]);
 		}
 		
+		// Update the hash.
 		window.location.hash = "#" + section;
 		
+		// Scroll to the section.
 		var window_width = $(window).width();
 		$("html").animate({
 				scrollLeft: index * window_width
@@ -44,15 +66,18 @@ $(window).load(function() {
 		);
 	});
 	
+	// Position the sections based on window size.
 	place_sections();
 });
 
 $(window).unload(function() {
+	// Reset to beginning on page reload.
 	$("html").scrollLeft(0);
 });
 
 $(window).resize(place_sections);
 
 $(window).scroll(function() {
+	// Create background parallax effect.
 	$("html").css("background-position", $(window).scrollLeft()*0.8 + "px 0");
 });
