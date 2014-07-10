@@ -6,105 +6,128 @@
         <meta charset="UTF-8" />
         
         <script src="http://code.jquery.com/jquery-1.11.0.js"></script>
-		<script src="./core.js"></script>
+        <script src="./core.js"></script>
         
         <link rel="stylesheet" href="./core.css" />
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     </head>
     <body>
-		<span id="site" class="spin"><a href="http://homletmoo.co.uk/">Main Site...</a></span>
-		
-		<div class="section" data-name="home">
-			<h1>Homletmoo's PC<br />Build Troubleshooter</h1>
-			<h2>It's like a choose-your-own-adventure: you might die at the end!</h2>
-			<br />
-			<span class="spin"><a href="#opening">Get Started...</a></span>
-		</div>
-		
-		<!-- Setting the scene. -->
-		<div class="section" data-name="opening">
-			<span class="spin"><a href="#back">Back...</a></span>
-			<h2>You look in despair at the box sitting on your desk. Despite weeks of meticulous planning, all attempts
-			at breathing life into the machine have failed. It taunts you with silence.</h2>
-			<h2>But you mustn't give up! This computer cost far too much in effort and money to simply abandon. So you
-			decide to make one final attempt, against all odds.</h2>
-			<span class="spin"><a href="#display">Continue...</a></span>
-		</div>
-		
-		<!-- Is the display on? -->
-		<div class="section" data-name="display">
-			<span class="spin"><a href="#back">Back...</a></span>
-			<h2>Relinquished of your previous doubts, you press the power button.</h2>
-			<ul>
-				<li><span class="spin"><a href="#post">The monitor flickers to life.</a></span></li>
-				<li><span class="spin"><a href="#fans" data-fault="GPU">No signal. Damn.</a></span></li>
-				<li><span class="spin"><a href="#plug">The monitor is blank and expressionless.</a></span></li>
-			</ul>
-		</div>
-		
-		<!-- Fan behaviour when powered on. -->
-		<div class="section" data-name="fans">
-			<span class="spin"><a href="#back">Back...</a></span>
-			<h2>You power off, and open the side panel to get a closer look at the poor wretch. Once again, you press the power button.</h2>
-			<ul>
-				<li><span class="spin"><a href="#speaker" data-fault="PSU">All the fans lie lifeless. You hear crickets chirping outside.</a></span></li>
-				<li><span class="spin"><a href="#speaker" data-fault="CPU">The fans spin up for a while, then shut off.</a></span></li>
-				<li><span class="spin"><a href="#speaker" data-fault="GPU">The fans spin up as normal.</a></span></li>
-			</ul>
-		</div>
-		
-		<!-- Getting a motherboard speaker. -->
-		<div class="section" data-name="speaker">
-			<span class="spin"><a href="#back">Back...</a></span>
-			<h2>In a sudden stroke of genius, you decide to buy a motherboard speaker, and so set off on a trek to the local electronics shop.</h2>
-			<ul>
-				<li><span class="spin"><a href="#beeps">You return triumphant, speaker in hand, and thirsty (the electronics shop is quite a way away).</a></span></li>
-				<li><span class="spin"><a href="#beeps">You fool! You walked all this way despite already owning a motherboard speaker.</a></span></li>
-				<li><span class="spin"><a href="#suggestions">Getting a speaker was a terrible idea. You head home, ashamed by your terrible decision making skills.</a></span></li>
-			</ul>
-		</div>
-		
-		<!-- Motherboard speaker beeps. -->
-		<div class="section" data-name="beeps">
-			<span class="spin"><a href="#back">Back...</a></span>
-			<h2>You install the speaker in the PC, and press the power button a third time. The motherboard starts making strange beeping
-			noises, as if it's trying to communicate with you.</h2>
-			<ul>
-				<li><span class="spin"><a href="#suggestions" data-fault="GPU">You hear a single, short beep.</a></span></li>
-				<li><span class="spin"><a href="#suggestions" data-fault="BIOS">You hear two short beeps.</a></span></li>
-				<li><span class="spin"><a href="#suggestions" data-fault="PSU">You hear a continuous beep / repeating short beeps.</a></span></li>
-				<li><span class="spin"><a href="#suggestions" data-fault="MOBO">You hear one long and one short beep.</a></span></li>
-				<li><span class="spin"><a href="#suggestions" data-fault="GPU">You hear one long and two / three short beeps.</a></span></li>
-				<li><span class="spin"><a href="#suggestions">You hear something else.</a></span></li>
-				<li><span class="spin"><a href="#suggestions" data-fault="GPU">You must have been hearing things, because the motherboard didn't make any sounds.</a></span></li>
-			</ul>
-		</div>
-		
-		<!-- POST message. -->
-		<div class="section" data-name="post">
-			<span class="spin"><a href="#back">Back...</a></span>
-			<h2>Is the screen displaying a POST message?</h2>
-			<ul>
-				<li><span class="spin"><a href="#suggestions" data-fault="RAM">Yes, it's complaining about memory.</a></span></li>
-				<li><span class="spin"><a href="#suggestions" data-fault="PSU">Yes, it's complaining about power.</a></span></li>
-			</ul>
-		</div>
-		
-		<!-- Plugged in. -->
-		<div class="section" data-name="plug">
-			<h2><em>Are you absolutely sure it's plugged in?</em></h2>
-			<span class="spin"><a href="#back">Yes.</a></span>
-		</div>
-		
-		<!-- Suggestions -->
-		<div class="section" data-name="suggestions">
-			<span class="spin"><a href="#back">Back...</a></span>
-			<h2>Suggestions:</h2>
-			<ul id="suggestions"></ul>
-		</div>
-				
-		<!-- This exists to pad the right of the last section. -->
-		<div class="section">
-			Well done, you found this <strike>feature</strike> Easter egg!
-		</div>
+        <span id="site" class="spin"><a href="http://homletmoo.co.uk/">Main Site...</a></span>
+        
+        <div class="section" data-name="home">
+            <h1>Homletmoo's PC<br />Build Troubleshooter</h1>
+            <h2>It's like a choose-your-own-adventure: you might die at the end!</h2>
+            <br />
+            <span class="spin"><a href="#opening">Get Started...</a></span>
+        </div>
+        
+        <!-- Setting the scene. -->
+        <div class="section" data-name="opening">
+            <span class="spin"><a href="#back">Back...</a></span>
+            <h2>You look in despair at the box sitting on your desk. Despite weeks of meticulous planning, all attempts
+            at breathing life into the machine have failed. It taunts you with silence.</h2>
+            <h2>But you mustn't give up! This computer cost far too much in effort and money to simply abandon. So you
+            decide to make one final attempt, against all odds.</h2>
+            <span class="spin"><a href="#display">Continue...</a></span>
+        </div>
+        
+        <!-- Is the display on? -->
+        <div class="section" data-name="display">
+            <span class="spin"><a href="#back">Back...</a></span>
+            <h2>Relinquished of your previous doubts, you press the power button.</h2>
+            <ul>
+                <li><span class="spin"><a href="#post">The monitor flickers to life.</a></span></li>
+                <li><span class="spin"><a href="#fans" data-fault="GPU">No signal. Damn.</a></span></li>
+                <li><span class="spin"><a href="#plug">The monitor is blank and expressionless.</a></span></li>
+            </ul>
+        </div>
+        
+        <!-- Fan behaviour when powered on. -->
+        <div class="section" data-name="fans">
+            <span class="spin"><a href="#back">Back...</a></span>
+            <h2>You power off, and open the side panel to get a closer look at the poor wretch. Once again, you press the power button.</h2>
+            <ul>
+                <li><span class="spin"><a href="#speaker" data-fault="PSU">All the fans lie lifeless. You hear crickets chirping outside.</a></span></li>
+                <li><span class="spin"><a href="#speaker" data-fault="CPU">The fans spin up for a while, then shut off.</a></span></li>
+                <li><span class="spin"><a href="#speaker" data-fault="GPU">The fans spin up as normal.</a></span></li>
+            </ul>
+        </div>
+        
+        <!-- Getting a motherboard speaker. -->
+        <div class="section" data-name="speaker">
+            <span class="spin"><a href="#back">Back...</a></span>
+            <h2>In a sudden stroke of genius, you decide to buy a motherboard speaker, and so set off on a trek to the local electronics shop.</h2>
+            <ul>
+                <li><span class="spin"><a href="#beeps">You return triumphant, speaker in hand, and thirsty (the electronics shop is quite a way away).</a></span></li>
+                <li><span class="spin"><a href="#beeps">You fool! You walked all this way despite already owning a motherboard speaker.</a></span></li>
+                <li><span class="spin"><a href="#suggestions">Getting a speaker was a terrible idea. You head home, ashamed by your terrible decision making skills.</a></span></li>
+            </ul>
+        </div>
+        
+        <!-- Motherboard speaker beeps. -->
+        <div class="section" data-name="beeps">
+            <span class="spin"><a href="#back">Back...</a></span>
+            <h2>You install the speaker in the PC, and press the power button a third time. The motherboard starts making strange beeping
+            noises, as if it's trying to communicate with you. You read the manual to try and understand what it means.</h2>
+            <ul>
+                <li><span class="spin"><a href="#suggestions" data-fault="GPU">There's some issue with the graphics.</a></span></li>
+                <li><span class="spin"><a href="#suggestions" data-fault="BIOS">.</a></span></li>
+                <li><span class="spin"><a href="#suggestions" data-fault="PSU">.</a></span></li>
+                <li><span class="spin"><a href="#suggestions" data-fault="MOBO">.</a></span></li>
+                <li><span class="spin"><a href="#suggestions" data-fault="GPU">.</a></span></li>
+                <li><span class="spin"><a href="#suggestions" data-fault="GPU">You must have been hearing things, because the motherboard didn't make any sounds.</a></span></li>
+            </ul>
+        </div>
+        
+        <!-- POST message. -->
+        <div class="section" data-name="post">
+            <span class="spin"><a href="#back">Back...</a></span>
+            <h2>You see some text appear on the screen.</h2>
+            <ul>
+                <li><span class="spin"><a href="#suggestions" data-fault="RAM">It's complaining about RAM. You wonder why the computer cares about sheep.</a></span></li>
+                <li><span class="spin"><a href="#suggestions" data-fault="HDD">It's complaining about the boot device. You wonder if that's some kind of shoehorn.</a></span></li>
+                <li><span class="spin"><a href="#suggestions" data-fault="PSU">It's complaining about power. You wonder who's coming up with these "jokes".</a></span></li>
+            </ul>
+        </div>
+        
+        <!-- Plugged in. -->
+        <div class="section" data-name="plug">
+            <h2><em>Are you absolutely sure it's plugged in?</em></h2>
+            <span class="spin"><a href="#back">Yes.</a></span>
+        </div>
+        
+        <!-- Suggestions -->
+        <div class="section" data-name="suggestions">
+            <span class="spin"><a href="#back">Back...</a></span>
+            <h2>All of a sudden, you have a brainwave, in which all of the following suggestions pass through your mind:</h2>
+            <ul id="suggestions">
+                <!-- CPU suggestions -->
+                <li data-fault="CPU">Check the CPU power cable is plugged in (4pin).</li>
+                <li data-fault="CPU">Check the CPU fan is plugged in.</li>
+                <li data-fault="CPU">Check the CPU for broken pins.</li>
+                <li data-fault="CPU">Try reseating the CPU.</li>
+                
+                <!-- GPU suggestions -->
+                <li data-fault="GPU">Make sure the monitor isn't plugged into the motherboard (if you have a graphics card).</li>
+                <li data-fault="GPU">Check the GPU PCIe power cable(s) is/are plugged in.</li>
+                <li data-fault="GPU">Try reseating the GPU.</li>
+                
+                <!-- RAM suggestions -->
+                <li data-fault="RAM">Try reseating the memory.</li>
+                <li data-fault="RAM">Check you have the memory in the correct slot(s) (RTFM).</li>
+                <li data-fault="RAM">If you have spare RAM slots, use those instead.</li>
+                
+                <!-- PSU suggestions -->
+                <li data-fault="PSU">Is the PSU plugged in and switched on?</li>
+                <li data-fault="PSU">Check all the power cables are connected (including the 12pin ATX cable).</li>
+                <li data-fault="PSU">
+            </ul>
+        </div>
+                
+        <!-- This exists to pad the right of the last section.
+             There was probably a better way to do this. -->
+        <div class="section">
+            Well done, you found this <strike>feature</strike> Easter egg!
+        </div>
     </body>
 </html>
