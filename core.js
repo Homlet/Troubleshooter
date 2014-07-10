@@ -25,7 +25,8 @@ $(window).load(function() {
 	$(".section a").click(function(event) {
 		event.preventDefault();
 		
-		var index = sections.indexOf($(this).attr("href").replace("#", ""));
+		var section = $(this).attr("href").replace("#", "");
+		var index = sections.indexOf(section);
 		if (index === -1) {
 			if (route.length > 1) { route.pop() };
 			index = route[route.length-1];
@@ -33,7 +34,7 @@ $(window).load(function() {
 			route.push(index)
 		}
 		
-		window.location.hash = "#" + sections[index];
+		window.location.hash = "#" + section;
 		
 		var window_width = $(window).width();
 		$("html").animate({
