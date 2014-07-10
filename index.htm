@@ -34,7 +34,7 @@
         <!-- Is the display on? -->
         <div class="section" data-name="display">
             <span class="spin"><a href="#back">Back...</a></span>
-            <h2>Relinquished of your previous doubts, you press the power button.</h2>
+            <h2>Relinquished of your previous doubts, you plug in the monitor, and press the power button.</h2>
             <ul>
                 <li><span class="spin"><a href="#post">The monitor flickers to life.</a></span></li>
                 <li><span class="spin"><a href="#fans" data-fault="GPU">No signal. Damn.</a></span></li>
@@ -70,11 +70,9 @@
             <h2>You install the speaker in the PC, and press the power button a third time. The motherboard starts making strange beeping
             noises, as if it's trying to communicate with you. You read the manual to try and understand what it means.</h2>
             <ul>
-                <li><span class="spin"><a href="#suggestions" data-fault="GPU">There's some issue with the graphics.</a></span></li>
-                <li><span class="spin"><a href="#suggestions" data-fault="BIOS">.</a></span></li>
-                <li><span class="spin"><a href="#suggestions" data-fault="PSU">.</a></span></li>
-                <li><span class="spin"><a href="#suggestions" data-fault="MOBO">.</a></span></li>
-                <li><span class="spin"><a href="#suggestions" data-fault="GPU">.</a></span></li>
+                <li><span class="spin"><a href="#suggestions" data-fault="GPU">There's some issue with the graphics (VGA).</a></span></li>
+                <li><span class="spin"><a href="#suggestions" data-fault="RAM">There's an problem with the memory.</a></span></li>
+                <li><span class="spin"><a href="#keyboard">It wants you to plug in a keyboard.</a></span></li>
                 <li><span class="spin"><a href="#suggestions" data-fault="GPU">You must have been hearing things, because the motherboard didn't make any sounds.</a></span></li>
             </ul>
         </div>
@@ -96,32 +94,54 @@
             <span class="spin"><a href="#back">Yes.</a></span>
         </div>
         
+        <!-- Plug in a keyboard! -->
+        <div class="section" data-name="keyboard">
+            <h2><em>Plug in a keyboard!</em></h2>
+            <span class="spin"><a href="#back">Done.</a></span>
+        </div>
+        
         <!-- Suggestions -->
         <div class="section" data-name="suggestions">
             <span class="spin"><a href="#back">Back...</a></span>
             <h2>All of a sudden, you have a brainwave, in which all of the following suggestions pass through your mind:</h2>
-            <ul id="suggestions">
+            <p><ul id="suggestions" data-fault="CPU">
                 <!-- CPU suggestions -->
-                <li data-fault="CPU">Check the CPU power cable is plugged in (4pin).</li>
-                <li data-fault="CPU">Check the CPU fan is plugged in.</li>
-                <li data-fault="CPU">Check the CPU for broken pins.</li>
-                <li data-fault="CPU">Try reseating the CPU.</li>
-                
+                <li>Check the CPU power cable is plugged in (4pin).</li>
+                <li>Check the CPU fan is plugged in.</li>
+                <li>Check the CPU for broken pins.</li>
+                <li>Try reseating the CPU / reapplying thermal paste.</li>
+            </ul></p>
+            <p><ul id="suggestions" data-fault="GPU">
                 <!-- GPU suggestions -->
-                <li data-fault="GPU">Make sure the monitor isn't plugged into the motherboard (if you have a graphics card).</li>
-                <li data-fault="GPU">Check the GPU PCIe power cable(s) is/are plugged in.</li>
-                <li data-fault="GPU">Try reseating the GPU.</li>
-                
+                <li>Make sure the monitor isn't plugged into the motherboard (if you have a graphics card).</li>
+                <li>Check the GPU PCIe power cable(s) is/are plugged in.</li>
+                <li>Try reseating the GPU.</li>
+            </ul></p>
+            <p><ul id="suggestions" data-fault="RAM">
                 <!-- RAM suggestions -->
-                <li data-fault="RAM">Try reseating the memory.</li>
-                <li data-fault="RAM">Check you have the memory in the correct slot(s) (RTFM).</li>
-                <li data-fault="RAM">If you have spare RAM slots, use those instead.</li>
-                
+                <li>Try reseating the memory.</li>
+                <li>Check you have the memory in the correct slot(s) (RTFM).</li>
+                <li>If you have spare RAM slots, use those instead.</li>
+            </ul></p>
+            <p><ul id="suggestions" data-fault="PSU">
                 <!-- PSU suggestions -->
-                <li data-fault="PSU">Is the PSU plugged in and switched on?</li>
-                <li data-fault="PSU">Check all the power cables are connected (including the 12pin ATX cable).</li>
-                <li data-fault="PSU">
-            </ul>
+                <li>Is the PSU plugged in and switched on?</li>
+                <li>Check all the power cables are connected (including the 12pin ATX cable).</li>
+                <li>Try the <span class="spin"><a href="https://www.youtube.com/watch?v=5FWXgQSokF4">paper-clip test</a></span> on the PSU.</li>
+            </ul></p>
+            <p><ul id="suggestions" data-fault="HDD">
+                <!-- HDD suggestions -->
+                <li>Is the hard drive plugged in? Does it show up in the BIOS?</li>
+                <li>Is there a disc drive with a bootable disc also plugged in?</li>
+                <li>Check the hard drive's power cable is plugged in.</li>
+                <li>Try booting into Linux using a DVD, and examining the contents of the HDD.</li>
+                <li>If the HDD is making clicking / grinding sounds it may be on its way out. If it's a new drive, consider an RMA.</li>
+            </ul></p>
+            <p><ul id="suggestions" data-fault="MOBO">
+                <!-- MOBO suggestions -->
+                <li>Check you haven't installed any superfluous motherboard stand-offs.</li>
+                <li>Is the 12pin ATX power cable installed correctly?</li>
+            </ul></p>
         </div>
                 
         <!-- This exists to pad the right of the last section.

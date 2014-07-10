@@ -10,20 +10,21 @@ function place_sections() {
 }
 
 function list_suggestions(route) {
-    // Populate object of suggestion types.
-    faults = {};
+    // Clear previous suggestions.
+    $("#suggestions").css("display", "none");
+    
+    // Populate list of suggestion types.
     route.forEach(function(entry) {
         entry = entry[1];
-        $("#suggestions li[data-fault=" + entry + "]").css("display", "initial");
-        if (entry != "") {
+        $("#suggestions[data-fault=" + entry + "]").css("display", "initial");
+        /* if (entry != "") {
             if (faults.hasOwnProperty(entry)) {
                 faults[entry]++;
             } else {
                 faults[entry] = 1
             }
-        }
+        } */
     });
-    console.log(faults);
 }
 
 $(window).load(function() {
@@ -39,7 +40,7 @@ $(window).load(function() {
     var route = Array();
     route.push([0, ""]);
     
-    $(".section a").click(function(event) {
+    $(".section a:not(#suggestions a)").click(function(event) {
         // Prevent the browser from following the link.
         event.preventDefault();
         
@@ -57,10 +58,6 @@ $(window).load(function() {
                 fault = $(this).attr("data-fault");
             }
             route.push([index, fault]);
-            
-            if (section === "suggestions") {
-                list_suggestions(route);
-            }
         }
         
         // Update the hash.
@@ -73,6 +70,10 @@ $(window).load(function() {
             },
             400
         );
+        
+        if (section === "suggestions") {
+            list_suggestions(route);
+        }
     });
     
     // Position the sections based on window size.

@@ -3,6 +3,7 @@ html {
     
     color: lightgrey;
     font-family: Arial, sans;
+    text-shadow: -2px 2px 0 black;
     text-align: center;
     
     background: url(./img/background.png);
@@ -31,7 +32,6 @@ ul {
     padding: 3px;
     
     color: skyblue;
-    text-shadow: -2px 2px 0 black;
     text-decoration: none;
     
     transition: 0.4s;
@@ -53,8 +53,9 @@ ul {
     padding-bottom: 10%;
 }
 
-#suggestions li {
+#suggestions {
     display: none;
+    border-bottom: 100px;
 }
 
 #site {
