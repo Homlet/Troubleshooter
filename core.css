@@ -1,0 +1,59 @@
+html {
+    overflow-x: hidden;
+    
+	color: lightgrey;
+    font-family: Arial, sans;
+	text-align: center;
+    
+    background: url(./img/background.png);
+}
+
+h1 {
+	color: white;
+	font-size: 40pt;
+	text-shadow: -5px 5px 0 black, 0 0 75px grey;
+}
+
+h2 {
+	text-shadow: -3px 3px 0 black;
+}
+
+ul {
+	padding: 0;
+}
+
+.spin {
+    perspective: 80px;
+}
+
+.spin * {
+	display:inline-block;
+	padding: 3px;
+	
+	color: skyblue;
+	text-shadow: -2px 2px 0 black;
+	text-decoration: none;
+	
+	transition: 0.4s;
+	transform-origin: 0 65%;
+}
+
+.spin:hover * {	
+	color: yellow;
+
+	transform: rotateX(360deg);
+	
+	background: rgba(100, 100, 100, 0.4);
+}
+
+.section {
+	position: absolute;
+	width: 768px;
+	margin-top: 10%;
+	padding-bottom: 10%;
+}
+
+#site {
+	position: fixed;
+	left: 10px;
+}
